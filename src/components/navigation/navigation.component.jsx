@@ -8,13 +8,15 @@ const NavigationContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 25px;
+  padding: 0 80px;
 `;
 
 const LogoContainer = styled(NavLink)`
   height: 100%;
-  width: 70px;
-  padding: 25px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const OptionsContainer = styled.div`
