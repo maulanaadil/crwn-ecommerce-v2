@@ -2,13 +2,15 @@ import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
-import HomePage from "./pages/homepage";
+import Navigation from "./components/navigation/navigation.component";
+import Home from "./pages/homepage";
 
 const App = () => {
   return (
     <div>
+      <Navigation />
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/" element={<Home />} />
       </Routes>
     </div>
   );
