@@ -57,8 +57,8 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
   return userDocRef;
 };
 
-export const onAuthStatedChangedListener = (callback) => {
-  return onAuthStateChanged(auth, callback);
+export const onAuthStatedChangedListener = (callback, errorCallback, completeCallback) => {
+  return onAuthStateChanged(auth, callback, errorCallback, completeCallback);
 };
 
 export const updateDisplayNameAuthUserWithEmailAndPassword = async (userAuth, { displayName }) => {

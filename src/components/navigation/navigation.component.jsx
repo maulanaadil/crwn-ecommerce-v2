@@ -58,6 +58,7 @@ const Navigation = () => {
         <OptionsContainer>
           <OptionLink to="/">Home</OptionLink>
           <OptionLink to="/shop">Shop</OptionLink>
+          <OptionLink to="/contact">Contact</OptionLink>
           {currentUser ? (
             <OptionLink as="div" onClick={signOutUser}>
               Sign Out
@@ -65,7 +66,6 @@ const Navigation = () => {
           ) : (
             <OptionLink to="/auth">Sign In</OptionLink>
           )}
-          <OptionLink to="/contact">Contact</OptionLink>
         </OptionsContainer>
         <Outlet />
       </NavigationContainer>
