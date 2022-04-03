@@ -1,13 +1,8 @@
-import { getRedirectResult } from "firebase/auth";
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
-import { UserContext } from "../../context/user.context";
-
 import {
-  auth,
-  signInWithGoogleRedirect,
-  createUserDocumentFromAuth,
+  signInWithGooglePopUp,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase.utils";
 
@@ -44,14 +39,9 @@ const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-  const { setCurrentUser } = useContext(UserContext);
-
-  useEffect(async () => {
-    const response = await getRedirectResult(auth);
-    if (response) {
-      await createUserDocumentFromAuth(response.user);
-    }
-  }, []);
+  const signInWithGoogle = async () => {
+    await signInWithGooglePopUp();
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -66,8 +56,7 @@ const SignIn = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(email, password);
-      setCurrentUser(user);
+      await signInAuthUserWithEmailAndPassword(email, password);
 
       resetFormFields();
     } catch (error) {
@@ -111,7 +100,7 @@ const SignIn = () => {
         />
         <ButtonContainer>
           <Button type="submit">Sign In</Button>
-          <Button type="button" isGoogleSign onClick={signInWithGoogleRedirect}>
+          <Button type="button" isGoogleSign onClick={signInWithGoogle}>
             With Google
           </Button>
         </ButtonContainer>

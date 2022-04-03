@@ -4,11 +4,11 @@ import {
   getAuth,
   signInWithPopup,
   signInWithEmailAndPassword,
-  signInWithRedirect,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   updateProfile,
   signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
@@ -31,7 +31,6 @@ googleProvider.setCustomParameters({
 
 export const auth = getAuth();
 export const signInWithGooglePopUp = () => signInWithPopup(auth, googleProvider);
-export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
 
@@ -56,6 +55,10 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
     }
   }
   return userDocRef;
+};
+
+export const onAuthStatedChangedListener = (callback) => {
+  return onAuthStateChanged(auth, callback);
 };
 
 export const updateDisplayNameAuthUserWithEmailAndPassword = async (userAuth, { displayName }) => {

@@ -47,12 +47,7 @@ const OptionLink = styled(NavLink)`
 `;
 
 const Navigation = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-
-  const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  };
+  const { currentUser } = useContext(UserContext);
 
   return (
     <>
@@ -64,7 +59,7 @@ const Navigation = () => {
           <OptionLink to="/">Home</OptionLink>
           <OptionLink to="/shop">Shop</OptionLink>
           {currentUser ? (
-            <OptionLink as="div" onClick={signOutHandler}>
+            <OptionLink as="div" onClick={signOutUser}>
               Sign Out
             </OptionLink>
           ) : (
