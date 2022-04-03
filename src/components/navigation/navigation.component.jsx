@@ -1,5 +1,10 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import { Outlet, NavLink } from "react-router-dom";
+
+import { UserContext } from "../../context/user.context";
+
+import { signOutUser } from "../../utils/firebase.utils";
 
 import { ReactComponent as CrwnLogo } from "../../assets/logo/crown.svg";
 
@@ -41,20 +46,37 @@ const OptionLink = styled(NavLink)`
   }
 `;
 
-const Navigation = () => (
-  <NavigationContainer>
-    <LogoContainer to="/">
-      <CrwnLogo />
-    </LogoContainer>
-    <OptionsContainer>
-      <OptionLink to="/">Home</OptionLink>
-      <OptionLink to="/shop">Shop</OptionLink>
-      <OptionLink to="/auth">Sign In</OptionLink>
-      <OptionLink to="/contact">Contact</OptionLink>
-    </OptionsContainer>
-    <Outlet />
-  </NavigationContainer>
-);
+const Navigation = () => {
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  };
+
+  return (
+    <>
+      <NavigationContainer>
+        <LogoContainer to="/">
+          <CrwnLogo />
+        </LogoContainer>
+        <OptionsContainer>
+          <OptionLink to="/">Home</OptionLink>
+          <OptionLink to="/shop">Shop</OptionLink>
+          {currentUser ? (
+            <OptionLink as="div" onClick={signOutHandler}>
+              Sign Out
+            </OptionLink>
+          ) : (
+            <OptionLink to="/auth">Sign In</OptionLink>
+          )}
+          <OptionLink to="/contact">Contact</OptionLink>
+        </OptionsContainer>
+        <Outlet />
+      </NavigationContainer>
+    </>
+  );
+};
 
 Navigation.propTypes = {};
 

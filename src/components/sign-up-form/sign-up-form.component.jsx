@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 
-import FormInput from "../form-input/form-input.component";
+import { UserContext } from "../../context/user.context";
 
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
   updateDisplayNameAuthUserWithEmailAndPassword,
 } from "../../utils/firebase.utils";
+
+import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
 const colorGray = "gray";
@@ -37,6 +39,8 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
+  const { setCurrentUser } = useContext(UserContext);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -56,6 +60,7 @@ const SignUpForm = () => {
 
     try {
       const { user } = await createAuthUserWithEmailAndPassword(email, password);
+      setCurrentUser(user);
       await createUserDocumentFromAuth(user, { displayName });
       await updateDisplayNameAuthUserWithEmailAndPassword(user, { displayName });
       alert("SignUp successfully");

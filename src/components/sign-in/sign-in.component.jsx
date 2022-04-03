@@ -1,8 +1,8 @@
 import { getRedirectResult } from "firebase/auth";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 
-import FormInput from "../form-input/form-input.component";
+import { UserContext } from "../../context/user.context";
 
 import {
   auth,
@@ -10,6 +10,8 @@ import {
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase.utils";
+
+import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
 const colorGray = "gray";
@@ -41,6 +43,9 @@ const defaultFormFields = {
 const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+
+  const { setCurrentUser } = useContext(UserContext);
+
   useEffect(async () => {
     const response = await getRedirectResult(auth);
     if (response) {
@@ -61,8 +66,8 @@ const SignIn = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await signInAuthUserWithEmailAndPassword(email, password);
-      console.log(response);
+      const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+      setCurrentUser(user);
 
       resetFormFields();
     } catch (error) {
