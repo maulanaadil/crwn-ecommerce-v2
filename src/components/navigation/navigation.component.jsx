@@ -47,7 +47,9 @@ const Navigation = () => (
       <CrwnLogo />
     </LogoContainer>
     <OptionsContainer>
+      <OptionLink to="/">Home</OptionLink>
       <OptionLink to="/shop">Shop</OptionLink>
+      <OptionLink to="/auth">Sign In</OptionLink>
       <OptionLink to="/contact">Contact</OptionLink>
     </OptionsContainer>
     <Outlet />
