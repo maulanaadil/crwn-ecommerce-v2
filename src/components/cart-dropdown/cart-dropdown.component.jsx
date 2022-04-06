@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import CartItem from "../cart-item/cart-item.component";
 import Button from "../button/button.component";
 
 const CartDropDownContainer = styled.div`
@@ -22,7 +23,7 @@ const EmptyMessage = styled.span`
   margin: 50px auto;
 `;
 
-const CartItems = styled.div`
+const CartItemsContainer = styled.div`
   height: 240px;
   display: flex;
   flex-direction: column;
@@ -41,7 +42,11 @@ const ButtonCheckout = styled(Button)`
 const CartDropdown = () => {
   return (
     <CartDropDownContainer>
-      <CartItems />
+      <CartItemsContainer>
+        {[].map((item) => (
+          <CartItem key={item.id} cartItem={item} />
+        ))}
+      </CartItemsContainer>
       <ButtonCheckout type="">Checkout</ButtonCheckout>
     </CartDropDownContainer>
   );
