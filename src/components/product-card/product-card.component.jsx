@@ -1,5 +1,8 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+
+import { CartContext } from "../../context/cart.context";
 
 import Button from "../button/button.component";
 
@@ -56,7 +59,11 @@ const ProductPrice = styled.span`
 `;
 
 const ProductCard = ({ product }) => {
+  const { addItemToCart } = useContext(CartContext);
   const { id, name, price, imageUrl } = product;
+
+  const addProductToCart = () => addItemToCart(product);
+
   return (
     <ProductCardContainer>
       <ProductImage src={imageUrl} alt={`img-${name}-${id}`} />
@@ -64,7 +71,7 @@ const ProductCard = ({ product }) => {
         <ProductName>{name}</ProductName>
         <ProductPrice>${price}</ProductPrice>
       </ProductCardFooter>
-      <Button type="button" invertedButtonStyles>
+      <Button type="button" invertedButtonStyles onClick={addProductToCart}>
         Add to cart
       </Button>
     </ProductCardContainer>
