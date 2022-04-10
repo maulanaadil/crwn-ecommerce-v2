@@ -1,31 +1,22 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
-import { ProductsContext } from "../context/product.context";
+import { CategoriesContext } from "../context/categories.context";
 
-import ProductCard from "../components/product-card/product-card.component";
+import CategoryPreview from "../components/category-preview/category-preview.component";
 
 const ShopContainer = styled.div`
   padding: 0 80px;
 `;
 
-const ProductsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 10px;
-  row-gap: 50px;
-`;
-
 const Shop = () => {
-  const { products } = useContext(ProductsContext);
+  const { categoriesMap } = useContext(CategoriesContext);
   return (
     <ShopContainer>
-      <h1>Shop Page</h1>
-      <ProductsContainer>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </ProductsContainer>
+      {Object.keys(categoriesMap).map((title) => {
+        const products = categoriesMap[title];
+        return <CategoryPreview key={title} title={title} product={products} />;
+      })}
     </ShopContainer>
   );
 };

@@ -79,14 +79,12 @@ const ProductCard = ({ product }) => {
 };
 
 ProductCard.propTypes = {
-  product: PropTypes.objectOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      price: PropTypes.number,
-      imageUrl: PropTypes.string,
-    }).isRequired
-  ).isRequired,
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    imageUrl: PropTypes.string,
+  }),
 };
 
 export default ProductCard;
