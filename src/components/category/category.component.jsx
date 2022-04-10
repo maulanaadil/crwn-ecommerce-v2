@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import CategoryItem from "../category-item/category-item.component";
+import DirectoryItem from "../category-item/directory-item.component";
 
 import category from "../../assets/data/category";
 
@@ -14,7 +14,7 @@ const CategoryContainer = styled.div`
 const Category = () => (
   <CategoryContainer>
     {category.map(({ id, ...otherProps }) => (
-      <CategoryItem key={id} {...otherProps} />
+      <DirectoryItem key={id} {...otherProps} />
     ))}
   </CategoryContainer>
 );

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
@@ -9,10 +10,14 @@ const CategoryPreviewContainer = styled.div`
   margin-bottom: 30px;
 `;
 
-const Title = styled.span`
+const Title = styled(Link)`
   font-size: 28px;
   margin-bottom: 25px;
   cursor: pointer;
+
+  &:hover {
+    color: #5b5b5b;
+  }
 `;
 
 const Preview = styled.div`
@@ -25,7 +30,7 @@ const CategoryPreview = ({ title, product }) => {
   return (
     <CategoryPreviewContainer>
       <h2>
-        <Title>{title.toUpperCase()}</Title>
+        <Title to={title}>{title.toUpperCase()}</Title>
       </h2>
       <Preview>
         {product

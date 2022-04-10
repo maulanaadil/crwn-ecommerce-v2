@@ -88,7 +88,7 @@ const Subtitle = styled.div`
   padding-bottom: 10px;
 `;
 
-const CategoryItem = ({ title, imageUrl }) => (
+const DirectoryItem = ({ title, imageUrl }) => (
   <MenuItemContainer>
     <BackgroundImage imageUrl={imageUrl} />
     <ContentContainer>
@@ -98,9 +98,9 @@ const CategoryItem = ({ title, imageUrl }) => (
   </MenuItemContainer>
 );
 
-CategoryItem.propTypes = {
+DirectoryItem.propTypes = {
   title: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
 };
 
-export default CategoryItem;
+export default DirectoryItem;
