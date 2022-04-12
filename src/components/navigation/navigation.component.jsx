@@ -1,7 +1,16 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import { Outlet, NavLink } from "react-router-dom";
 
+import { UserContext } from "../../context/user.context";
+import { CartContext } from "../../context/cart.context";
+
+import { signOutUser } from "../../utils/firebase.utils";
+
 import { ReactComponent as CrwnLogo } from "../../assets/logo/crown.svg";
+
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 const NavigationContainer = styled.div`
   height: 70px;
@@ -41,18 +50,35 @@ const OptionLink = styled(NavLink)`
   }
 `;
 
-const Navigation = () => (
-  <NavigationContainer>
-    <LogoContainer to="/">
-      <CrwnLogo />
-    </LogoContainer>
-    <OptionsContainer>
-      <OptionLink to="/shop">Shop</OptionLink>
-      <OptionLink to="/contact">Contact</OptionLink>
-    </OptionsContainer>
-    <Outlet />
-  </NavigationContainer>
-);
+const Navigation = () => {
+  const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
+
+  return (
+    <>
+      <NavigationContainer>
+        <LogoContainer to="/">
+          <CrwnLogo />
+        </LogoContainer>
+        <OptionsContainer>
+          <OptionLink to="/">Home</OptionLink>
+          <OptionLink to="/shop">Shop</OptionLink>
+          <OptionLink to="/contact">Contact</OptionLink>
+          {currentUser ? (
+            <OptionLink as="div" onClick={signOutUser}>
+              Sign Out
+            </OptionLink>
+          ) : (
+            <OptionLink to="/auth">Sign In</OptionLink>
+          )}
+          <CartIcon />
+        </OptionsContainer>
+        {isCartOpen && <CartDropdown />}
+        <Outlet />
+      </NavigationContainer>
+    </>
+  );
+};
 
 Navigation.propTypes = {};
 

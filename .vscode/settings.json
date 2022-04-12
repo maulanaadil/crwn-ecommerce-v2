@@ -1,0 +1,9 @@
+{
+  "svg.preview.background": "transparent",
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "files.autoSave": "onFocusChange",
+  "prettier.singleQuote": false,
+  "prettier.jsxSingleQuote": false
+}
