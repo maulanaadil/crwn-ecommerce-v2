@@ -1,9 +1,13 @@
 import { createContext, useReducer } from "react";
 import PropTypes from "prop-types";
 
+import { createAction } from "../utils/reducer/reducer.utils";
+
 const addCartItems = (cartItems, productToAdd) => {
   // Find if cartItems contains productToAdd
-  const existingCartItems = cartItems.find((cartItem) => cartItem.id === productToAdd.id);
+  const existingCartItems = cartItems.find(
+    (cartItem) => cartItem.id === productToAdd.id
+  );
 
   // If found, increment quantity
   if (existingCartItems) {
@@ -23,7 +27,9 @@ const addCartItems = (cartItems, productToAdd) => {
 
 const removeCartItem = (cartItems, cartItemToRemove) => {
   // Find if cartItems contains productToRemove
-  const existingCartItem = cartItems.find((cartItem) => cartItem.id === cartItemToRemove.id);
+  const existingCartItem = cartItems.find(
+    (cartItem) => cartItem.id === cartItemToRemove.id
+  );
 
   // Check if quantity is equal to 1, if it is remove that item frm that cart
   if (existingCartItem.quantity === 1) {
@@ -94,21 +100,27 @@ export const CartProvider = ({ children }) => {
   const { cartItems, isCartOpen, cartCount, total } = state;
 
   const updateCartItemsReducer = (newCartItems) => {
-    const newCartCount = newCartItems.reduce((total, cartItem) => total + cartItem.quantity, 0);
+    const newCartCount = newCartItems.reduce(
+      (total, cartItem) => total + cartItem.quantity,
+      0
+    );
 
     const newCartTotal = newCartItems.reduce(
       (total, cartItem) => total + cartItem.quantity * cartItem.price,
       0
     );
 
-    dispatch({
-      type: CART_ACTION_TYPES.SET_CART_ITEMS,
-      payload: { cartItems: newCartItems, cartTotal: newCartTotal, cartCount: newCartCount },
-    });
+    dispatch(
+      createAction(CART_ACTION_TYPES.SET_CART_ITEMS, {
+        cartItems: newCartItems,
+        cartTotal: newCartTotal,
+        cartCount: newCartCount,
+      })
+    );
   };
 
   const setIsCartOpen = (bool) => {
-    dispatch({ type: CART_ACTION_TYPES.SET_TOGGLE_CART_OPEN, payload: bool });
+    dispatch(createAction(CART_ACTION_TYPES.SET_TOGGLE_CART_OPEN, bool));
   };
 
   const addItemToCart = (productToAdd) => {
@@ -141,5 +153,8 @@ export const CartProvider = ({ children }) => {
 };
 
 CartProvider.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
 };
