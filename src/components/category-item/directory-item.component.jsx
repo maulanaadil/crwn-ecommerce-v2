@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
@@ -39,7 +40,7 @@ const ContentContainer = styled.div`
   position: absolute;
 `;
 
-const MenuItemContainer = styled.div`
+const MenuItemContainer = styled(Link)`
   min-width: 30%;
   ${getSizeMenuItem}
   flex: 1 1 auto;
@@ -88,8 +89,8 @@ const Subtitle = styled.div`
   padding-bottom: 10px;
 `;
 
-const CategoryItem = ({ title, imageUrl }) => (
-  <MenuItemContainer>
+const DirectoryItem = ({ title, imageUrl }) => (
+  <MenuItemContainer to={`/shop/${title}`}>
     <BackgroundImage imageUrl={imageUrl} />
     <ContentContainer>
       <Title>{title}</Title>
@@ -98,9 +99,9 @@ const CategoryItem = ({ title, imageUrl }) => (
   </MenuItemContainer>
 );
 
-CategoryItem.propTypes = {
+DirectoryItem.propTypes = {
   title: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
 };
 
-export default CategoryItem;
+export default DirectoryItem;
