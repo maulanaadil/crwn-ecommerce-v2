@@ -50,12 +50,12 @@ const CartItem = ({ cartItem }) => {
 };
 
 CartItem.propTypes = {
-  cartItem: PropTypes.objectOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      quantity: PropTypes.number.isRequired,
-    })
-  ),
+  cartItem: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+  }),
 };
 
 export default CartItem;
