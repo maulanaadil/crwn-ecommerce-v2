@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { Outlet, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { UserContext } from "../../context/user.context";
 import { CartContext } from "../../context/cart.context";
 
 import { signOutUser } from "../../utils/firebase.utils";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 import { ReactComponent as CrwnLogo } from "../../assets/logo/crown.svg";
 
@@ -51,7 +52,7 @@ const OptionLink = styled(NavLink)`
 `;
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
 
   return (
