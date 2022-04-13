@@ -64,7 +64,9 @@ const ButtonContainer = styled.button`
   ${getButtonStyles}
 `;
 
-const Button = ({ children, ...props }) => <ButtonContainer {...props}>{children}</ButtonContainer>;
+const Button = ({ children, ...props }) => (
+  <ButtonContainer {...props}>{children}</ButtonContainer>
+);
 
 Button.propTypes = {
   children: PropTypes.string,

@@ -35,7 +35,10 @@ const Category = () => {
     <>
       <Title>{category.toUpperCase()}</Title>
       <CategoryContainer>
-        {products && products.map((product) => <ProductCard key={product.id} product={product} />)}
+        {products &&
+          products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
       </CategoryContainer>
     </>
   );

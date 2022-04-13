@@ -58,7 +58,8 @@ const RemoveButton = styled.div`
 `;
 
 const CheckoutItem = ({ cartItem }) => {
-  const { addItemToCart, removeItemFromCart, clearItemFromCart } = useContext(CartContext);
+  const { addItemToCart, removeItemFromCart, clearItemFromCart } =
+    useContext(CartContext);
   const { name, price, imageUrl, quantity } = cartItem;
 
   const clearItemHandler = () => clearItemFromCart(cartItem);

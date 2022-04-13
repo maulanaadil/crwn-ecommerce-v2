@@ -9,7 +9,6 @@ import { store } from "./store/store";
 
 import GlobalStyle from "./globalStyle";
 
-import { UserProvider } from "./context/user.context";
 import { CategoriesProvider } from "./context/categories.context";
 import { CartProvider } from "./context/cart.context";
 
@@ -18,13 +17,11 @@ ReactDOM.render(
     <Provider store={store}>
       <GlobalStyle />
       <BrowserRouter>
-        <UserProvider>
-          <CategoriesProvider>
-            <CartProvider>
-              <App />
-            </CartProvider>
-          </CategoriesProvider>
-        </UserProvider>
+        <CategoriesProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </CategoriesProvider>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

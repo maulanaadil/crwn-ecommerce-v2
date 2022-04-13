@@ -56,7 +56,9 @@ const Group = styled.div`
 const FormInput = ({ label, inputOptions: { ...otherProps } }) => (
   <Group>
     <Input {...otherProps} />
-    {label && <FormInputLabel shrink={otherProps.value.length}>{label}</FormInputLabel>}
+    {label && (
+      <FormInputLabel shrink={otherProps.value.length}>{label}</FormInputLabel>
+    )}
   </Group>
 );
 
