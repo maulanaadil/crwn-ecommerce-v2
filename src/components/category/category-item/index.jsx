@@ -89,7 +89,7 @@ const Subtitle = styled.div`
   padding-bottom: 10px;
 `;
 
-const DirectoryItem = ({ title, imageUrl }) => (
+const CategoryItem = ({ title, imageUrl }) => (
   <MenuItemContainer to={`/shop/${title}`}>
     <BackgroundImage imageUrl={imageUrl} />
     <ContentContainer>
@@ -99,9 +99,9 @@ const DirectoryItem = ({ title, imageUrl }) => (
   </MenuItemContainer>
 );
 
-DirectoryItem.propTypes = {
+CategoryItem.propTypes = {
   title: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
 };
 
-export default DirectoryItem;
+export default CategoryItem;

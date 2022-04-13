@@ -4,10 +4,10 @@ import styled from "styled-components";
 import {
   signInWithGooglePopUp,
   signInAuthUserWithEmailAndPassword,
-} from "../../utils/firebase.utils";
+} from "utils/firebase.utils";
 
-import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+import { FormInput } from "components/form";
+import Button from "components/button";
 
 const colorGray = "gray";
 

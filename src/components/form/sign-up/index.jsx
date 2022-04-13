@@ -5,10 +5,10 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
   updateDisplayNameAuthUserWithEmailAndPassword,
-} from "../../utils/firebase.utils";
+} from "../../../utils/firebase.utils";
 
-import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+import FormInput from "../form-input";
+import Button from "../../button";
 
 const colorGray = "gray";
 

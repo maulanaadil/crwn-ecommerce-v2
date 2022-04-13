@@ -9,7 +9,7 @@ import {
 
 import { setCurrentUser } from "./store/user/user.action";
 
-import Navigation from "./components/navigation/navigation.component";
+import Navigation from "./components/navigation";
 import Home from "./pages/homepage";
 import Authentication from "./pages/authentication";
 import Shop from "./pages/shop";

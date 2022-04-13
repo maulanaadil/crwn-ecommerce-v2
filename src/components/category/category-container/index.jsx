@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import DirectoryItem from "../category-item/directory-item.component";
+import { CategoryItem } from "components/category";
 
-import category from "../../assets/data/category";
+import category from "assets/data/category";
 
 const CategoryContainer = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const CategoryContainer = styled.div`
 const Category = () => (
   <CategoryContainer>
     {category.map(({ id, ...otherProps }) => (
-      <DirectoryItem key={id} {...otherProps} />
+      <CategoryItem key={id} {...otherProps} />
     ))}
   </CategoryContainer>
 );

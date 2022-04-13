@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-import { selectCategoriesMap } from "../store/categories/categories.selector";
+import { selectCategoriesMap } from "store/categories/categories.selector";
 
-import CategoryPreview from "../components/category-preview/category-preview.component";
+import { CategoryPreview } from "components/category";
 
 const CategoriesPreviewContainer = styled.div`
   padding: 0 80px;

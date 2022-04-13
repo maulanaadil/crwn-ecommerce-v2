@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import SignIn from "../components/sign-in/sign-in.component";
-import SignUpForm from "../components/sign-up-form/sign-up-form.component";
+import { SignIn, SignUpForm } from "components/form";
 
 const AuthenticationContainer = styled.div`
   width: 850px;

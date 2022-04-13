@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import ProductCard from "../product-card/product-card.component";
+import ProductCard from "components/product-card";
 
 const CategoryPreviewContainer = styled.div`
   display: flex;

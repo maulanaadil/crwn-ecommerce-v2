@@ -2,9 +2,9 @@ import { useContext } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import { CartContext } from "../../context/cart.context";
+import { CartContext } from "context/cart.context";
 
-import Button from "../button/button.component";
+import Button from "components/button";
 
 const ProductImage = styled.img`
   width: 100%;

@@ -3,9 +3,9 @@ import { Routes, Route } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 
-import { getCategoriesAndDocuments } from "../utils/firebase.utils";
+import { getCategoriesAndDocuments } from "utils/firebase.utils";
 
-import { setCategoriesMap } from "../store/categories/categories-action";
+import { setCategoriesMap } from "store/categories/categories-action";
 
 import CategoriesPreview from "./categories-preview";
 import Category from "./category";

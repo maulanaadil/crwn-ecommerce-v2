@@ -3,15 +3,14 @@ import styled from "styled-components";
 import { Outlet, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { CartContext } from "../../context/cart.context";
+import { CartContext } from "context/cart.context";
 
-import { signOutUser } from "../../utils/firebase.utils";
-import { selectCurrentUser } from "../../store/user/user.selector";
+import { signOutUser } from "utils/firebase.utils";
+import { selectCurrentUser } from "store/user/user.selector";
 
-import { ReactComponent as CrwnLogo } from "../../assets/logo/crown.svg";
+import { ReactComponent as CrwnLogo } from "assets/logo/crown.svg";
 
-import CartIcon from "../cart-icon/cart-icon.component";
-import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+import { CartIcon, CartDropdown } from "components/cart";
 
 const NavigationContainer = styled.div`
   height: 70px;

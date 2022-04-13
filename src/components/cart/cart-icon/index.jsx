@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import styled from "styled-components";
 
-import { CartContext } from "../../context/cart.context";
+import { CartContext } from "context/cart.context";
 
-import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
+import { ReactComponent as ShoppingIcon } from "assets/shopping-bag.svg";
 
 const CartIconContainer = styled.div`
   width: 48px;

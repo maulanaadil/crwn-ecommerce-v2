@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-import { selectCategoriesMap } from "../store/categories/categories.selector";
+import { selectCategoriesMap } from "store/categories/categories.selector";
 
-import ProductCard from "../components/product-card/product-card.component";
+import ProductCard from "components/product-card";
 
 const CategoryContainer = styled.div`
   display: grid;

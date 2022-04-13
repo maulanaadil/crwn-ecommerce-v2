@@ -2,7 +2,7 @@ import { useContext } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
-import { CartContext } from "../../context/cart.context";
+import { CartContext } from "context/cart.context";
 
 const CheckoutItemContainer = styled.div`
   width: 100%;
