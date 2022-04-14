@@ -1,10 +1,7 @@
-// import { useContext } from "react";
 import { useSelector } from "react-redux";
 
 import styled from "styled-components";
 import { Outlet, NavLink } from "react-router-dom";
-
-// import { CartContext } from "context/cart.context";
 
 import { signOutUser } from "utils/firebase.utils";
 import { selectCurrentUser } from "store/user/user.selector";
@@ -54,7 +51,6 @@ const OptionLink = styled(NavLink)`
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
-  // const { isCartOpen } = useContext(CartContext);
   const isCartOpen = useSelector(selectIsCartOpen);
 
   return (

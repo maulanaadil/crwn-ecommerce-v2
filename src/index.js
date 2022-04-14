@@ -9,16 +9,12 @@ import { store } from "./store/store";
 
 import GlobalStyle from "./globalStyle";
 
-import { CartProvider } from "./context/cart.context";
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <GlobalStyle />
       <BrowserRouter>
-        <CartProvider>
-          <App />
-        </CartProvider>
+        <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

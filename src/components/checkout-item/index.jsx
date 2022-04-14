@@ -1,8 +1,13 @@
-import { useContext } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 
-import { CartContext } from "context/cart.context";
+import { selectCartItems } from "store/cart/cart-selector";
+import {
+  addItemToCart,
+  removeItemFromCart,
+  clearItemFromCart,
+} from "store/cart/cart-action";
 
 const CheckoutItemContainer = styled.div`
   width: 100%;
@@ -58,15 +63,19 @@ const RemoveButton = styled.div`
 `;
 
 const CheckoutItem = ({ cartItem }) => {
-  const { addItemToCart, removeItemFromCart, clearItemFromCart } =
-    useContext(CartContext);
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+
   const { name, price, imageUrl, quantity } = cartItem;
 
-  const clearItemHandler = () => clearItemFromCart(cartItem);
+  const clearItemHandler = () =>
+    dispatch(clearItemFromCart(cartItems, cartItem));
 
-  const increaseItemHandler = () => addItemToCart(cartItem);
+  const increaseItemHandler = () =>
+    dispatch(addItemToCart(cartItems, cartItem));
 
-  const decreaseItemHandler = () => removeItemFromCart(cartItem);
+  const decreaseItemHandler = () =>
+    dispatch(removeItemFromCart(cartItems, cartItem));
 
   const checkingQuantity = (quantity) => {
     if (quantity === 1) {
