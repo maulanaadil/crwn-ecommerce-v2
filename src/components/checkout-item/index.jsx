@@ -107,15 +107,13 @@ const CheckoutItem = ({ cartItem }) => {
 };
 
 CheckoutItem.propTypes = {
-  cartItem: PropTypes.objectOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      quantity: PropTypes.number.isRequired,
-      imageUrl: PropTypes.string.isRequired,
-    })
-  ),
+  cartItem: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+  }),
 };
 
 export default CheckoutItem;
