@@ -40,11 +40,15 @@ googleProvider.setCustomParameters({
 });
 
 export const auth = getAuth();
-export const signInWithGooglePopUp = () => signInWithPopup(auth, googleProvider);
+export const signInWithGooglePopUp = () =>
+  signInWithPopup(auth, googleProvider);
 
 export const db = getFirestore();
 
-export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
 
@@ -70,7 +74,10 @@ export const getCategoriesAndDocuments = async () => {
   return categoryMap;
 };
 
-export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
+export const createUserDocumentFromAuth = async (
+  userAuth,
+  additionalInformation = {}
+) => {
   if (!userAuth);
   const userDocRef = doc(db, "users", userAuth.uid);
 
@@ -93,11 +100,18 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
   return userDocRef;
 };
 
-export const onAuthStatedChangedListener = (callback, errorCallback, completeCallback) => {
+export const onAuthStatedChangedListener = (
+  callback,
+  errorCallback,
+  completeCallback
+) => {
   return onAuthStateChanged(auth, callback, errorCallback, completeCallback);
 };
 
-export const updateDisplayNameAuthUserWithEmailAndPassword = async (userAuth, { displayName }) => {
+export const updateDisplayNameAuthUserWithEmailAndPassword = async (
+  userAuth,
+  { displayName }
+) => {
   await updateProfile(userAuth, {
     displayName,
   }).catch((err) => {

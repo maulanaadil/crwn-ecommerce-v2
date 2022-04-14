@@ -1,16 +1,17 @@
-import React, { useContext } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-import { CategoriesContext } from "../context/categories.context";
+import { selectCategoriesMap } from "store/categories/categories.selector";
 
-import CategoryPreview from "../components/category-preview/category-preview.component";
+import { CategoryPreview } from "components/category";
 
 const CategoriesPreviewContainer = styled.div`
   padding: 0 80px;
 `;
 
 const CategoriesPreview = () => {
-  const { categoriesMap } = useContext(CategoriesContext);
+  const categoriesMap = useSelector(selectCategoriesMap);
+
   return (
     <CategoriesPreviewContainer>
       {Object.keys(categoriesMap).map((title) => {

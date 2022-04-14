@@ -1,10 +1,9 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-import { useContext } from "react";
+import { selectCartItems, selectCartTotal } from "store/cart/cart-selector";
 
-import CheckoutItem from "../components/checkout-item/checkout-item.component";
-
-import { CartContext } from "../context/cart.context";
+import CheckoutItem from "components/checkout-item";
 
 const CheckoutContainer = styled.div`
   width: 55%;
@@ -53,7 +52,8 @@ const TextWarning = styled.div`
 `;
 
 const Checkout = () => {
-  const { cartItems, total } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
   return (
     <CheckoutContainer>
       <CheckoutHeader>
@@ -77,7 +77,7 @@ const Checkout = () => {
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
       <TotalWrapper>
-        <Total>Total: ${total}</Total>
+        <Total>Total: ${cartTotal}</Total>
       </TotalWrapper>
       <TextWarning>
         *Please us the following test credit card for payments*
