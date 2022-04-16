@@ -1,8 +1,12 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-import { selectCategoriesMap } from "store/categories/categories.selector";
+import {
+  selectCategoriesMap,
+  selectCategoriesIsLoading,
+} from "store/categories/categories.selector";
 
+import Spinner from "components/spinner";
 import { CategoryPreview } from "components/category";
 
 const CategoriesPreviewContainer = styled.div`
@@ -11,14 +15,23 @@ const CategoriesPreviewContainer = styled.div`
 
 const CategoriesPreview = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
+  const isLoading = useSelector(selectCategoriesIsLoading);
 
   return (
-    <CategoriesPreviewContainer>
-      {Object.keys(categoriesMap).map((title) => {
-        const products = categoriesMap[title];
-        return <CategoryPreview key={title} title={title} product={products} />;
-      })}
-    </CategoriesPreviewContainer>
+    <>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <CategoriesPreviewContainer>
+          {Object.keys(categoriesMap).map((title) => {
+            const products = categoriesMap[title];
+            return (
+              <CategoryPreview key={title} title={title} product={products} />
+            );
+          })}
+        </CategoriesPreviewContainer>
+      )}
+    </>
   );
 };
 
