@@ -2,12 +2,18 @@ import { put, all, takeLatest, call } from "redux-saga/effects";
 
 import USER_ACTION_TYPES from "./user.types";
 
-import { signInSuccess, signInFailed } from "./user.action";
+import {
+  signInSuccess,
+  signInFailed,
+  signOutFailed,
+  signOutSuccess,
+} from "./user.action";
 import {
   getCurrentUser,
   createUserDocumentFromAuth,
   signInWithGooglePopUp,
   signInAuthUserWithEmailAndPassword,
+  signOutUser,
 } from "utils/firebase.utils";
 
 export function* getSnapshopFromUserAuth(userAuth, additionalDetails) {
@@ -45,6 +51,15 @@ export function* signInWithEmail({ payload: { email, password } }) {
   }
 }
 
+export function* signOut() {
+  try {
+    yield call(signOutUser);
+    yield put(signOutSuccess());
+  } catch (error) {
+    yield put(signOutFailed(error));
+  }
+}
+
 export function* isUserAuthenticated() {
   try {
     const userAuth = yield call(getCurrentUser);
@@ -53,6 +68,10 @@ export function* isUserAuthenticated() {
   } catch (error) {
     yield put(signInFailed(error));
   }
+}
+
+export function* onSignOutStart() {
+  yield takeLatest(USER_ACTION_TYPES.SIGN_OUT_START, signOut);
 }
 
 export function* onEmailSignInStart() {
@@ -72,5 +91,6 @@ export function* userSagas() {
     call(isUserAuthenticated),
     call(onGoogleSignInStart),
     call(onEmailSignInStart),
+    call(onSignOutStart),
   ]);
 }

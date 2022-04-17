@@ -1,9 +1,10 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import styled from "styled-components";
 import { Outlet, NavLink } from "react-router-dom";
 
-import { signOutUser } from "utils/firebase.utils";
+// import { signOutUser } from "utils/firebase.utils";
+import { signOutStart } from "store/user/user.action";
 import { selectCurrentUser } from "store/user/user.selector";
 import { selectIsCartOpen } from "store/cart/cart-selector";
 
@@ -50,8 +51,13 @@ const OptionLink = styled(NavLink)`
 `;
 
 const Navigation = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
+
+  const signOutHandler = async () => {
+    dispatch(signOutStart());
+  };
 
   return (
     <>
@@ -64,7 +70,7 @@ const Navigation = () => {
           <OptionLink to="/shop">Shop</OptionLink>
           <OptionLink to="/contact">Contact</OptionLink>
           {currentUser ? (
-            <OptionLink as="div" onClick={signOutUser}>
+            <OptionLink as="div" onClick={signOutHandler}>
               Sign Out
             </OptionLink>
           ) : (
