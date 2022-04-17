@@ -9,6 +9,7 @@ import Home from "./pages/homepage";
 import Authentication from "./pages/authentication";
 import Shop from "./pages/shop";
 import Checkout from "./pages/checkout";
+import NotFound from "./pages/404";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const App = () => {
         <Route exact path="auth" element={<Authentication />} />
         <Route exact path="shop/*" element={<Shop />} />
         <Route exact path="checkout" element={<Checkout />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
