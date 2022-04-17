@@ -2,30 +2,20 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 
-import {
-  onAuthStatedChangedListener,
-  createUserDocumentFromAuth,
-} from "./utils/firebase.utils";
-
-import { setCurrentUser } from "./store/user/user.action";
+import { checkUserSession } from "store/user/user.action";
 
 import Navigation from "./components/navigation";
 import Home from "./pages/homepage";
 import Authentication from "./pages/authentication";
 import Shop from "./pages/shop";
 import Checkout from "./pages/checkout";
+import NotFound from "./pages/404";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = onAuthStatedChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      dispatch(setCurrentUser(user));
-    });
-    return unsubscribe;
+    dispatch(checkUserSession());
   }, []);
 
   return (
@@ -36,6 +26,7 @@ const App = () => {
         <Route exact path="auth" element={<Authentication />} />
         <Route exact path="shop/*" element={<Shop />} />
         <Route exact path="checkout" element={<Checkout />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
