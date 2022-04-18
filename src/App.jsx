@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import { checkUserSession } from "store/user/user.action";
+import { selectCurrentUser } from "store/user/user.selector";
 
 import Navigation from "./components/navigation";
 import Home from "./pages/homepage";
@@ -13,6 +14,7 @@ import NotFound from "./pages/404";
 
 const App = () => {
   const dispatch = useDispatch();
+  const currentUser = useSelector(selectCurrentUser);
 
   useEffect(() => {
     dispatch(checkUserSession());
@@ -23,7 +25,11 @@ const App = () => {
       <Navigation />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="auth" element={<Authentication />} />
+        <Route
+          exact
+          path="auth"
+          element={currentUser ? <Navigate to="/" /> : <Authentication />}
+        />
         <Route exact path="shop/*" element={<Shop />} />
         <Route exact path="checkout" element={<Checkout />} />
         <Route path="*" element={<NotFound />} />
