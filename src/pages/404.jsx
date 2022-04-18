@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
+import { PageTransition } from "animation";
 import Button from "components/button";
 
 const NotFoundContainer = styled.div`
@@ -29,13 +30,15 @@ const NotFound = () => {
   };
 
   return (
-    <NotFoundContainer>
-      <Title>404</Title>
-      <SubTitle>Not Found</SubTitle>
-      <Button type="button" onClick={goToHomepageHandler}>
-        Go To Homepage
-      </Button>
-    </NotFoundContainer>
+    <PageTransition>
+      <NotFoundContainer>
+        <Title>404</Title>
+        <SubTitle>Not Found</SubTitle>
+        <Button type="button" onClick={goToHomepageHandler}>
+          Go To Homepage
+        </Button>
+      </NotFoundContainer>
+    </PageTransition>
   );
 };
 

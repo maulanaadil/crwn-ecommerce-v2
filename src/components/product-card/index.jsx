@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 import { addItemToCart } from "store/cart/cart-action";
 import { selectCartItems } from "store/cart/cart-selector";
@@ -14,7 +15,7 @@ const ProductImage = styled.img`
   margin-bottom: 5px;
 `;
 
-const ProductCardContainer = styled.div`
+const ProductCardContainer = styled(motion.div)`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -59,7 +60,7 @@ const ProductPrice = styled.span`
   width: 10%;
 `;
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, ...otherProps }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
@@ -68,7 +69,7 @@ const ProductCard = ({ product }) => {
   const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
 
   return (
-    <ProductCardContainer>
+    <ProductCardContainer {...otherProps}>
       <ProductImage src={imageUrl} alt={`img-${name}-${id}`} />
       <ProductCardFooter>
         <ProductName>{name}</ProductName>

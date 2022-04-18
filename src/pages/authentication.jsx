@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { SignIn, SignUpForm } from "components/form";
+import { PageTransition } from "animation";
 
 const AuthenticationContainer = styled.div`
   width: 850px;
@@ -12,10 +13,12 @@ const AuthenticationContainer = styled.div`
 `;
 
 const Authentication = () => (
-  <AuthenticationContainer>
-    <SignIn />
-    <SignUpForm />
-  </AuthenticationContainer>
+  <PageTransition>
+    <AuthenticationContainer>
+      <SignIn />
+      <SignUpForm />
+    </AuthenticationContainer>
+  </PageTransition>
 );
 
 export default Authentication;

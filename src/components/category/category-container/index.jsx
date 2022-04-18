@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AnimatePresence } from "framer-motion";
 
 import { CategoryItem } from "components/category";
 
@@ -13,9 +14,11 @@ const CategoryContainer = styled.div`
 
 const Category = () => (
   <CategoryContainer>
-    {category.map(({ id, ...otherProps }) => (
-      <CategoryItem key={id} {...otherProps} />
-    ))}
+    <AnimatePresence>
+      {category.map(({ id, ...otherProps }) => (
+        <CategoryItem key={id} {...otherProps} />
+      ))}
+    </AnimatePresence>
   </CategoryContainer>
 );
 
