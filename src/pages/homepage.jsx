@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { Category } from "components/category";
+import { PageTransition } from "animation";
 
 const CategoriesContainer = styled.div`
   display: flex;
@@ -11,9 +12,11 @@ const CategoriesContainer = styled.div`
 
 const Home = () => {
   return (
-    <CategoriesContainer>
-      <Category />
-    </CategoriesContainer>
+    <PageTransition>
+      <CategoriesContainer>
+        <Category />
+      </CategoriesContainer>
+    </PageTransition>
   );
 };
 

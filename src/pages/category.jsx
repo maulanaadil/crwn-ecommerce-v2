@@ -10,6 +10,7 @@ import {
 
 import Spinner from "components/spinner";
 import ProductCard from "components/product-card";
+import { PageTransition } from "animation";
 
 const CategoryContainer = styled.div`
   display: grid;
@@ -39,17 +40,26 @@ const Category = () => {
 
   return (
     <>
-      <Title>{category.toUpperCase()}</Title>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <CategoryContainer>
-          {products &&
-            products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-        </CategoryContainer>
-      )}
+      <PageTransition>
+        <Title>{category.toUpperCase()}</Title>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <CategoryContainer>
+            {products &&
+              products.map((product, index) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  initial={{ x: 300, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -300, opacity: 0 }}
+                  transition={{ delay: 0.2 * index }}
+                />
+              ))}
+          </CategoryContainer>
+        )}
+      </PageTransition>
     </>
   );
 };

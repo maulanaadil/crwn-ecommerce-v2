@@ -1,13 +1,14 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import { selectCartItems } from "store/cart/cart-selector";
 
 import { CartItem } from "components/cart";
 import Button from "components/button";
 
-const CartDropDownContainer = styled.div`
+const CartDropDownContainer = styled(motion.div)`
   position: absolute;
   width: 240px;
   height: 340px;
@@ -42,7 +43,7 @@ const ButtonCheckout = styled(Button)`
   margin-top: auto;
 `;
 
-const CartDropdown = () => {
+const CartDropdown = ({ ...otherProps }) => {
   const cartItems = useSelector(selectCartItems);
   const navigate = useNavigate();
 
@@ -51,7 +52,7 @@ const CartDropdown = () => {
   };
 
   return (
-    <CartDropDownContainer>
+    <CartDropDownContainer {...otherProps}>
       <CartItemsContainer>
         {cartItems.length ? (
           cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)

@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
 
 import ProductCard from "components/product-card";
 
-const CategoryPreviewContainer = styled.div`
+const CategoryPreviewContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
@@ -26,9 +27,9 @@ const Preview = styled.div`
   column-gap: 20px;
 `;
 
-const CategoryPreview = ({ title, product }) => {
+const CategoryPreview = ({ title, product, ...otherProps }) => {
   return (
-    <CategoryPreviewContainer>
+    <CategoryPreviewContainer {...otherProps}>
       <h2>
         <Title to={title}>{title.toUpperCase()}</Title>
       </h2>

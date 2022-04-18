@@ -8,6 +8,7 @@ import {
 
 import Spinner from "components/spinner";
 import { CategoryPreview } from "components/category";
+import { PageTransition } from "animation";
 
 const CategoriesPreviewContainer = styled.div`
   padding: 0 80px;
@@ -22,14 +23,24 @@ const CategoriesPreview = () => {
       {isLoading ? (
         <Spinner />
       ) : (
-        <CategoriesPreviewContainer>
-          {Object.keys(categoriesMap).map((title) => {
-            const products = categoriesMap[title];
-            return (
-              <CategoryPreview key={title} title={title} product={products} />
-            );
-          })}
-        </CategoriesPreviewContainer>
+        <PageTransition>
+          <CategoriesPreviewContainer>
+            {Object.keys(categoriesMap).map((title, index) => {
+              const products = categoriesMap[title];
+              return (
+                <CategoryPreview
+                  key={title}
+                  title={title}
+                  product={products}
+                  initial={{ y: 300, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  exit={{ y: -300, opacity: 0 }}
+                  transition={{ delay: 0.2 * index }}
+                />
+              );
+            })}
+          </CategoriesPreviewContainer>
+        </PageTransition>
       )}
     </>
   );

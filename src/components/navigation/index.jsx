@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 
+import { AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import { Outlet, NavLink } from "react-router-dom";
 
-// import { signOutUser } from "utils/firebase.utils";
 import { signOutStart } from "store/user/user.action";
 import { selectCurrentUser } from "store/user/user.selector";
 import { selectIsCartOpen } from "store/cart/cart-selector";
@@ -78,7 +78,15 @@ const Navigation = () => {
           )}
           <CartIcon />
         </OptionsContainer>
-        {isCartOpen && <CartDropdown />}
+        {isCartOpen && (
+          <AnimatePresence>
+            <CartDropdown
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+          </AnimatePresence>
+        )}
         <Outlet />
       </NavigationContainer>
     </>
