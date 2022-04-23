@@ -1,31 +1,7 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
 import PropTypes from "prop-types";
-import { motion } from "framer-motion";
 
+import { CategoryPreviewContainer, Title, Preview } from "./styles";
 import ProductCard from "components/product-card";
-
-const CategoryPreviewContainer = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
-`;
-
-const Title = styled(Link)`
-  font-size: 28px;
-  margin-bottom: 25px;
-  cursor: pointer;
-
-  &:hover {
-    color: #5b5b5b;
-  }
-`;
-
-const Preview = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
-`;
 
 const CategoryPreview = ({ title, product, ...otherProps }) => {
   return (
