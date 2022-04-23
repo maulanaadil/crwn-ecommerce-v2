@@ -29,12 +29,12 @@ const ProductCard = ({ product, ...otherProps }) => {
         <ProductName>{name}</ProductName>
         <ProductPrice>${price}</ProductPrice>
       </ProductCardFooter>
-      <ProductButton
+      <Button
         type="button"
         buttonType={BUTTON_TYPE_CLASSES.inverted}
         onClick={addProductToCart}>
         Add to cart
-      </ProductButton>
+      </Button>
     </ProductCardContainer>
   );
 };
