@@ -1,16 +1,9 @@
-import styled from "styled-components";
 import { AnimatePresence } from "framer-motion";
-
-import { CategoryItem } from "components/category";
 
 import category from "assets/data/category";
 
-const CategoryContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: space-between;
-`;
+import { CategoryItem } from "components/category";
+import { CategoryContainer } from "./styles";
 
 const Category = () => (
   <CategoryContainer>

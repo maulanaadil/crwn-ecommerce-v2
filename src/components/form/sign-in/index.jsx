@@ -1,38 +1,15 @@
 import { useState } from "react";
-import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
 import { googleSignInStart, emailSignInStart } from "store/user/user.action";
 
+import { ButtonContainer, Description, SignInContainer, Title } from "./styles";
 import { FormInput } from "components/form";
+
 import Button from "components/button";
 import { BUTTON_TYPE_CLASSES } from "components/button/type";
 
-const colorGray = "gray";
-
-const SignInContainer = styled.div`
-  width: 380px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  gap: 20px;
-`;
-
-const Title = styled.h2`
-  margin: 10px 0;
-`;
-
-const Description = styled.span`
-  color: ${colorGray};
-`;
-
-const defaultFormFields = {
-  email: "",
-  password: "",
-};
+import { defaultFormFields } from "./utils";
 
 const SignIn = () => {
   const dispatch = useDispatch();

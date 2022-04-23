@@ -1,38 +1,17 @@
 import { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
 
 import { selectCurrentUser } from "store/user/user.selector";
 import { selectCartTotal } from "store/cart/cart-selector";
 
-import Button from "components/button";
+import {
+  PaymentFormContainer,
+  FormContainer,
+  Title,
+  PaymentButton,
+} from "./styles";
 import { BUTTON_TYPE_CLASSES } from "components/button/type";
-
-const PaymentFormContainer = styled.div`
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const FormContainer = styled.form`
-  height: 100px;
-  min-width: 500px;
-
-  button {
-    float: right;
-    margin-top: 40px;
-  }
-`;
-
-const Title = styled.h2``;
-
-const PaymentButton = styled(Button)`
-  margin-left: auto;
-  margin-top: 30px;
-`;
 
 const PaymentForm = () => {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);

@@ -1,34 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
 
 import { signUpStart } from "store/user/user.action";
 
+import { SignUpContainer, Title, Description } from "./styles";
 import { FormInput } from "components/form";
 import Button from "components/button";
 
-const colorGray = "gray";
-
-const SignUpContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 480px;
-`;
-
-const Title = styled.h2`
-  margin: 10px 0;
-`;
-
-const Description = styled.span`
-  color: ${colorGray};
-`;
-
-const defaultFormFields = {
-  displayName: "",
-  email: "",
-  password: "",
-  confirmPassword: "",
-};
+import { defaultFormFields } from "./utils";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
