@@ -7,6 +7,7 @@ import { selectCurrentUser } from "store/user/user.selector";
 import { selectCartTotal } from "store/cart/cart-selector";
 
 import Button from "components/button";
+import { BUTTON_TYPE_CLASSES } from "components/button/type";
 
 const PaymentFormContainer = styled.div`
   height: 300px;
@@ -27,6 +28,11 @@ const FormContainer = styled.form`
 `;
 
 const Title = styled.h2``;
+
+const PaymentButton = styled(Button)`
+  margin-left: auto;
+  margin-top: 30px;
+`;
 
 const PaymentForm = () => {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
@@ -85,9 +91,12 @@ const PaymentForm = () => {
       <FormContainer onSubmit={paymentHandler}>
         <Title>Credit Card Payment: </Title>
         <CardElement />
-        <Button disabled={isProcessingPayment} type="submit">
+        <PaymentButton
+          isLoading={isProcessingPayment}
+          buttonType={BUTTON_TYPE_CLASSES.inverted}
+          type="submit">
           Pay now
-        </Button>
+        </PaymentButton>
       </FormContainer>
     </PaymentFormContainer>
   );

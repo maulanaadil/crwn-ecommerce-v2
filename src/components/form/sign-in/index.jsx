@@ -6,6 +6,7 @@ import { googleSignInStart, emailSignInStart } from "store/user/user.action";
 
 import { FormInput } from "components/form";
 import Button from "components/button";
+import { BUTTON_TYPE_CLASSES } from "components/button/type";
 
 const colorGray = "gray";
 
@@ -17,7 +18,7 @@ const SignInContainer = styled.div`
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
 `;
 
 const Title = styled.h2`
@@ -98,7 +99,10 @@ const SignIn = () => {
         />
         <ButtonContainer>
           <Button type="submit">Sign In</Button>
-          <Button type="button" isGoogleSign onClick={signInWithGoogle}>
+          <Button
+            type="button"
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            onClick={signInWithGoogle}>
             With Google
           </Button>
         </ButtonContainer>

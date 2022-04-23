@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 import { signUpStart } from "store/user/user.action";
 
-import FormInput from "../form-input";
-import Button from "../../button";
+import { FormInput } from "components/form";
+import Button from "components/button";
 
 const colorGray = "gray";
 
