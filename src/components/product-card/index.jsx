@@ -10,8 +10,8 @@ import {
   ProductCardFooter,
   ProductName,
   ProductPrice,
-  ProductButton,
 } from "./styles";
+import Button from "components/button";
 import { BUTTON_TYPE_CLASSES } from "components/button/type";
 
 const ProductCard = ({ product, ...otherProps }) => {

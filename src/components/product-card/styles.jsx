@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import Button from "components/button";
-
 export const ProductImage = styled.img`
   width: 100%;
   height: 95%;
@@ -54,5 +52,3 @@ export const ProductName = styled.span`
 export const ProductPrice = styled.span`
   width: 10%;
 `;
-
-export const ProductButton = styled(Button);
