@@ -7,6 +7,7 @@ import { addItemToCart } from "store/cart/cart-action";
 import { selectCartItems } from "store/cart/cart-selector";
 
 import Button from "components/button";
+import { BUTTON_TYPE_CLASSES } from "components/button/type";
 
 const ProductImage = styled.img`
   width: 100%;
@@ -75,7 +76,10 @@ const ProductCard = ({ product, ...otherProps }) => {
         <ProductName>{name}</ProductName>
         <ProductPrice>${price}</ProductPrice>
       </ProductCardFooter>
-      <Button type="button" invertedButtonStyles onClick={addProductToCart}>
+      <Button
+        type="button"
+        buttonType={BUTTON_TYPE_CLASSES.inverted}
+        onClick={addProductToCart}>
         Add to cart
       </Button>
     </ProductCardContainer>

@@ -60,9 +60,7 @@ const CartDropdown = ({ ...otherProps }) => {
           <EmptyMessage>No Items</EmptyMessage>
         )}
       </CartItemsContainer>
-      <ButtonCheckout type="button" onClick={goToCheckoutHandler}>
-        Checkout
-      </ButtonCheckout>
+      <ButtonCheckout onClick={goToCheckoutHandler}>Checkout</ButtonCheckout>
     </CartDropDownContainer>
   );
 };

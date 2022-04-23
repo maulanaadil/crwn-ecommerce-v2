@@ -5,6 +5,7 @@ import { selectCartItems, selectCartTotal } from "store/cart/cart-selector";
 
 import { PageTransition } from "animation";
 import CheckoutItem from "components/checkout-item";
+import PaymentForm from "components/payment-form";
 
 const CheckoutContainer = styled.div`
   width: 55%;
@@ -86,6 +87,7 @@ const Checkout = () => {
           <br />
           4242 4242 4242 4242 - Exp: 05/22 - CVV: 123
         </TextWarning>
+        <PaymentForm />
       </CheckoutContainer>
     </PageTransition>
   );
