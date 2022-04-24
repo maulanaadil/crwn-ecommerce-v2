@@ -2,11 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { AnimatePresence } from "framer-motion";
 import { Outlet } from "react-router-dom";
 
-import { signOutStart } from "store/user/user.action";
-import { selectCurrentUser } from "store/user/user.selector";
-import { selectIsCartOpen } from "store/cart/cart-selector";
+import { signOutStart } from "@Store/user/user.action";
+import { selectCurrentUser } from "@Store/user/user.selector";
+import { selectIsCartOpen } from "@Store/cart/cart-selector";
 
-import { ReactComponent as CrwnLogo } from "assets/logo/crown.svg";
+import { ReactComponent as CrwnLogo } from "@Assets/logo/crown.svg";
 
 import {
   NavigationContainer,
@@ -14,7 +14,7 @@ import {
   OptionsContainer,
   OptionLink,
 } from "./styles";
-import { CartIcon, CartDropdown } from "components/cart";
+import { CartIcon, CartDropdown } from "@Components/cart";
 
 const Navigation = () => {
   const dispatch = useDispatch();

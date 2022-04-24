@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import { CategoryPreviewContainer, Title, Preview } from "./styles";
-import ProductCard from "components/product-card";
+import ProductCard from "@Components/product-card";
 
 const CategoryPreview = ({ title, product, ...otherProps }) => {
   return (

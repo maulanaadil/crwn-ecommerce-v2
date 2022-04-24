@@ -2,8 +2,8 @@ import { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useSelector } from "react-redux";
 
-import { selectCurrentUser } from "store/user/user.selector";
-import { selectCartTotal } from "store/cart/cart-selector";
+import { selectCurrentUser } from "@Store/user/user.selector";
+import { selectCartTotal } from "@Store/cart/cart-selector";
 
 import {
   PaymentFormContainer,
@@ -11,7 +11,7 @@ import {
   Title,
   PaymentButton,
 } from "./styles";
-import { BUTTON_TYPE_CLASSES } from "components/button/type";
+import { BUTTON_TYPE_CLASSES } from "@Components/button/type";
 
 const PaymentForm = () => {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);

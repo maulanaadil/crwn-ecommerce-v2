@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { Category } from "components/category";
-import { PageTransition } from "animation";
+import { Category } from "@Components/category";
+import { PageTransition } from "@Animation";
 
 const CategoriesContainer = styled.div`
   display: flex;

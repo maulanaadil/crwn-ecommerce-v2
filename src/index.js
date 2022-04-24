@@ -7,8 +7,8 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import { Elements } from "@stripe/react-stripe-js";
 
-import { store, persistor } from "./store/store";
-import { stripePromise } from "utils/stripe/stripe.utils";
+import { store, persistor } from "@Store/store";
+import { stripePromise } from "@Utils/stripe/stripe.utils";
 
 import GlobalStyle from "./globalStyle";
 

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { signUpStart } from "store/user/user.action";
+import { signUpStart } from "@Store/user/user.action";
 
 import { SignUpContainer, Title, Description } from "./styles";
-import { FormInput } from "components/form";
-import Button from "components/button";
+import { FormInput } from "@Components/form";
+import Button from "@Components/button";
 
 import { defaultFormFields } from "./utils";
 

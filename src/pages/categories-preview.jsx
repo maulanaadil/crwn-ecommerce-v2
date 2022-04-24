@@ -4,11 +4,11 @@ import styled from "styled-components";
 import {
   selectCategoriesMap,
   selectCategoriesIsLoading,
-} from "store/categories/categories.selector";
+} from "@Store/categories/categories.selector";
 
-import Spinner from "components/spinner";
-import { CategoryPreview } from "components/category";
-import { PageTransition } from "animation";
+import Spinner from "@Components/spinner";
+import { CategoryPreview } from "@Components/category";
+import { PageTransition } from "@Animation";
 
 const CategoriesPreviewContainer = styled.div`
   padding: 0 80px;

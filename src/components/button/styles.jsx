@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { SpinnerContainer } from "components/spinner/styles";
+import { SpinnerContainer } from "@Components/spinner/styles";
 
 const primaryColorBlue = "#4285f4";
 
