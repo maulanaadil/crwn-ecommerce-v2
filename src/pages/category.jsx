@@ -6,11 +6,11 @@ import styled from "styled-components";
 import {
   selectCategoriesIsLoading,
   selectCategoriesMap,
-} from "store/categories/categories.selector";
+} from "@Store/categories/categories.selector";
 
-import Spinner from "components/spinner";
-import ProductCard from "components/product-card";
-import { PageTransition } from "animation";
+import Spinner from "@Components/spinner";
+import ProductCard from "@Components/product-card";
+import { PageTransition } from "@Animation";
 
 const CategoryContainer = styled.div`
   display: grid;

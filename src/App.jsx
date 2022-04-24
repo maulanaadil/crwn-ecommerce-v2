@@ -2,15 +2,15 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import { checkUserSession } from "store/user/user.action";
-import { selectCurrentUser } from "store/user/user.selector";
+import { checkUserSession } from "@Store/user/user.action";
+import { selectCurrentUser } from "@Store/user/user.selector";
 
-import Navigation from "./components/navigation";
-import Home from "./pages/homepage";
-import Authentication from "./pages/authentication";
-import Shop from "./pages/shop";
-import Checkout from "./pages/checkout";
-import NotFound from "./pages/404";
+import Navigation from "@Components/navigation";
+import Home from "@Pages/homepage";
+import Authentication from "@Pages/authentication";
+import Shop from "@Pages/shop";
+import Checkout from "@Pages/checkout";
+import NotFound from "@Pages/404";
 
 const App = () => {
   const dispatch = useDispatch();

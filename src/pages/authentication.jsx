@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { SignIn, SignUpForm } from "components/form";
-import { PageTransition } from "animation";
+import { SignIn, SignUpForm } from "@Components/form";
+import { PageTransition } from "@Animation";
 
 const AuthenticationContainer = styled.div`
   width: 850px;

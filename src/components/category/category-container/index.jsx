@@ -1,8 +1,8 @@
 import { AnimatePresence } from "framer-motion";
 
-import category from "assets/data/category";
+import category from "@Assets/data/category";
 
-import { CategoryItem } from "components/category";
+import { CategoryItem } from "@Components/category";
 import { CategoryContainer } from "./styles";
 
 const Category = () => (

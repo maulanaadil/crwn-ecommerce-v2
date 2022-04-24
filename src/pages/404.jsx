@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-import { PageTransition } from "animation";
-import Button from "components/button";
+import { PageTransition } from "@Animation";
+import Button from "@Components/button";
 
 const NotFoundContainer = styled.div`
   display: flex;

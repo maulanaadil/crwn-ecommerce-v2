@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import Button from "components/button";
+import Button from "@Components/button";
 
 export const CartDropDownContainer = styled(motion.div)`
   position: absolute;

@@ -17,7 +17,7 @@ import {
   signInAuthUserWithEmailAndPassword,
   createAuthUserWithEmailAndPassword,
   signOutUser,
-} from "utils/firebase/firebase.utils";
+} from "@Utils/firebase/firebase.utils";
 
 export function* getSnapshopFromUserAuth(userAuth, additionalDetails) {
   try {

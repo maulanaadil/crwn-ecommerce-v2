@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectCartItems } from "store/cart/cart-selector";
+import { selectCartItems } from "@Store/cart/cart-selector";
 import {
   addItemToCart,
   removeItemFromCart,
   clearItemFromCart,
-} from "store/cart/cart-action";
+} from "@Store/cart/cart-action";
 
 import {
   CheckoutItemContainer,

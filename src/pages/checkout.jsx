@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-import { selectCartItems, selectCartTotal } from "store/cart/cart-selector";
+import { selectCartItems, selectCartTotal } from "@Store/cart/cart-selector";
 
-import { PageTransition } from "animation";
-import CheckoutItem from "components/checkout-item";
-import PaymentForm from "components/payment-form";
+import { PageTransition } from "@Animation";
+import CheckoutItem from "@Components/checkout-item";
+import PaymentForm from "@Components/payment-form";
 
 const CheckoutContainer = styled.div`
   width: 55%;
