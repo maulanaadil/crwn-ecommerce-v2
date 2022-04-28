@@ -10,7 +10,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { store, persistor } from "@Store/store";
 import { stripePromise } from "@Utils/stripe/stripe.utils";
 
-import GlobalStyle from "./globalStyle";
+import GlobalStyle from "./styles/globalStyle";
 
 ReactDOM.render(
   <React.StrictMode>
