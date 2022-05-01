@@ -1,4 +1,3 @@
-/* craco.config.js */
 import path from "path";
 module.exports = {
   webpack: {
