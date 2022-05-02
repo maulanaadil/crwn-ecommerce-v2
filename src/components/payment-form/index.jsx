@@ -39,7 +39,7 @@ const PaymentForm = () => {
       if (res.status === 200) {
         return res.json();
       } else {
-        throw `error with status ${res.status}`;
+        throw Error`error with status ${res.status}`;
       }
     });
 
