@@ -93,7 +93,7 @@ export const getCategoriesAndDocuments = async (): Promise<Category[]> => {
 
 export const createUserDocumentFromAuth = async (
   userAuth: User,
-  additionalInformation: AdditionalInformation
+  additionalInformation?: AdditionalInformation
 ): Promise<void | QueryDocumentSnapshot<UserData>> => {
   if (!userAuth) return;
   const userDocRef = doc(db, "users", userAuth.uid);
