@@ -1,6 +1,4 @@
-/* craco.config.js */
-const path = require(`path`);
-
+import path from "path";
 module.exports = {
   webpack: {
     alias: {

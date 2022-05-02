@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { scrollbarStyle } from "./scrollbarStyle";
 
 const GlobalStyle = createGlobalStyle`
     code {
@@ -9,10 +10,6 @@ const GlobalStyle = createGlobalStyle`
         font-family: "Open Sans", sans-serif;
     }
 
-    body::-webkit-scrollbar {
-     display: none;
-    }
-
     a {
         text-decoration: none;
         color: black;
@@ -21,6 +18,8 @@ const GlobalStyle = createGlobalStyle`
     * {
          box-sizing: border-box;
     }
+
+    ${scrollbarStyle}
 `;
 
 export default GlobalStyle;
