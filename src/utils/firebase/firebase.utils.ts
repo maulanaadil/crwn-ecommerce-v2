@@ -26,7 +26,7 @@ import {
   QueryDocumentSnapshot,
 } from "firebase/firestore";
 
-import { Category, CategoryItem } from "@Store/categories/categories.types";
+import { Category } from "@Store/categories/categories.types";
 
 export type ObjectToAdd = {
   title: string;
