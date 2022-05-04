@@ -31,10 +31,10 @@
       "@Assets/*": ["assets/*"],
       "@Store": ["store"],
       "@Store/*": ["store/*"],
-      "@Utils": ["utils"],
-      "@Utils/*": ["utils/*"],
       "@Modules": ["modules"],
-      "@Modules/*": ["modules/*"]
+      "@Modules/*": ["modules/*"],
+      "@Utils": ["utils"],
+      "@Utils/*": ["utils/*"]
     }
   },
   "include": ["src", "src/config.d.ts"]

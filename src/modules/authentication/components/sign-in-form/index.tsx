@@ -12,7 +12,7 @@ import { BUTTON_TYPE_CLASSES } from "@Components/button/types";
 
 import { defaultFormFields } from "./utils";
 
-const SignIn = () => {
+const SignInForm = () => {
   const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
@@ -80,4 +80,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignInForm;
