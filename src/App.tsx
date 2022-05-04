@@ -6,11 +6,11 @@ import { checkUserSession } from "@Store/user/user.action";
 import { selectCurrentUser } from "@Store/user/user.selector";
 
 import Navigation from "@Components/navigation";
-import Home from "@Pages/homepage";
-import AuthenticationPage from "@Pages/authenticationpage";
-import Shop from "@Pages/shoppage";
-import Checkout from "@Pages/checkoutpage";
-import NotFound from "@Pages/404page";
+import Home from "@Pages/home-page";
+import AuthenticationPage from "@Pages/authentication-page";
+import Shop from "@Pages/shop-page";
+import Checkout from "@Pages/checkout-page";
+import NotFound from "@Pages/404-page";
 
 const App = () => {
   const dispatch = useDispatch();
