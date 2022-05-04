@@ -18,7 +18,6 @@
     "jsx": "react-jsx",
     "baseUrl": "./src",
     "typeRoots": ["./node_modules/@types", "./src/types"],
-
     "paths": {
       "@": ["*"],
       "@Components": ["components"],
@@ -35,5 +34,5 @@
       "@Utils/*": ["utils/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/config.d.ts"]
 }
