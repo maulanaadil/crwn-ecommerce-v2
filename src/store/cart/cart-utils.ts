@@ -59,5 +59,5 @@ export const clearCartItem = (
 };
 
 export const clearCartAfterPayment = (cartItems: CartItem[]): CartItem[] => {
-  return cartItems.splice(0, cartItems.length);
+  return (cartItems = []);
 };
