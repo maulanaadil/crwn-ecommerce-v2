@@ -14,8 +14,12 @@ import {
 import Button from "@Components/button";
 import { BUTTON_TYPE_CLASSES } from "@Components/button/types";
 import { ProductCardProps } from "./types";
+import { MotionProps } from "framer-motion";
 
-const ProductCard: FC<ProductCardProps> = ({ product, ...otherProps }) => {
+const ProductCard: FC<ProductCardProps & MotionProps> = ({
+  product,
+  ...otherProps
+}) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
