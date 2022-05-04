@@ -8,7 +8,7 @@ import { selectCurrentUser } from "@Store/user/user.selector";
 import Navigation from "@Components/navigation";
 import Home from "@Pages/homepage";
 import Authentication from "@Pages/authenticationpage";
-import Shop from "@Pages/shop";
+import Shop from "@Pages/shoppage";
 import Checkout from "@Pages/checkoutpage";
 import NotFound from "@Pages/404page";
 
