@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FC } from "react";
 import { PageTransitionProps } from "./types";
 
 const animationConfiguration = {
@@ -7,7 +8,7 @@ const animationConfiguration = {
   exit: { opacity: 0 },
 };
 
-const PageTransition = ({ children }: PageTransitionProps) => {
+const PageTransition: FC<PageTransitionProps> = ({ children }) => {
   return (
     <motion.div
       variants={animationConfiguration}
