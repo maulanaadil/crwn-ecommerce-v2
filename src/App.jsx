@@ -9,7 +9,7 @@ import Navigation from "@Components/navigation";
 import Home from "@Pages/homepage";
 import Authentication from "@Pages/authenticationpage";
 import Shop from "@Pages/shop";
-import Checkout from "@Pages/checkout";
+import Checkout from "@Pages/checkoutpage";
 import NotFound from "@Pages/404page";
 
 const App = () => {
