@@ -24,14 +24,13 @@ const App = () => {
     <div>
       <Navigation />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route
-          exact
           path="auth"
           element={currentUser ? <Navigate to="/" /> : <Authentication />}
         />
-        <Route exact path="shop/*" element={<Shop />} />
-        <Route exact path="checkout" element={<Checkout />} />
+        <Route path="shop/*" element={<Shop />} />
+        <Route path="checkout" element={<Checkout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
