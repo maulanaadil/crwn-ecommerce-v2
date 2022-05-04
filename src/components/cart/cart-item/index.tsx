@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { FC } from "react";
 
 import { CartItemProps } from "./types";
