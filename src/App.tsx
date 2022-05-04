@@ -6,7 +6,7 @@ import { checkUserSession } from "@Store/user/user.action";
 import { selectCurrentUser } from "@Store/user/user.selector";
 
 import Navigation from "@Components/navigation";
-import Home from "@Pages/home-page";
+import HomePage from "@Pages/home-page";
 import AuthenticationPage from "@Pages/authentication-page";
 import Shop from "@Pages/shop-page";
 import CheckoutPage from "@Pages/checkout-page";
@@ -24,7 +24,7 @@ const App = () => {
     <div>
       <Navigation />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route
           path="auth"
           element={currentUser ? <Navigate to="/" /> : <AuthenticationPage />}

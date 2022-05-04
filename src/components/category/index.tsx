@@ -1,5 +1,4 @@
-import Category from "./category-container";
-import CategoryItem from "./category-item";
+import CategoryItem from "./category-card";
 import CategoryPreview from "./category-preview";
 
-export { Category, CategoryItem, CategoryPreview };
+export { CategoryItem, CategoryPreview };

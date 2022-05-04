@@ -1,23 +1,12 @@
-import styled from "styled-components";
-
-import { Category } from "@Components/category";
+import Home from "@Modules/home";
 import { PageTransition } from "@Animation";
 
-const CategoriesContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 80px;
-`;
-
-const Home = () => {
+const HomePage = () => {
   return (
     <PageTransition>
-      <CategoriesContainer>
-        <Category />
-      </CategoriesContainer>
+      <Home />
     </PageTransition>
   );
 };
 
-export default Home;
+export default HomePage;
