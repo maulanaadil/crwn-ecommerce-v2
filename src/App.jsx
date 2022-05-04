@@ -10,7 +10,7 @@ import Home from "@Pages/homepage";
 import Authentication from "@Pages/authentication";
 import Shop from "@Pages/shop";
 import Checkout from "@Pages/checkout";
-import NotFound from "@Pages/404";
+import NotFound from "@Pages/404page";
 
 const App = () => {
   const dispatch = useDispatch();
