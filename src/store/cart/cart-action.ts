@@ -1,7 +1,12 @@
 import { CART_ACTION_TYPES, CartItem } from "./cart-types";
 import { CategoryItem } from "@Store/categories/categories.types";
 
-import { addCartItems, clearCartItem, removeCartItem } from "./cart-utils";
+import {
+  addCartItems,
+  clearCartItem,
+  removeCartItem,
+  clearCartAfterPayment,
+} from "./cart-utils";
 import {
   createAction,
   withMatcher,
@@ -49,5 +54,10 @@ export const clearItemFromCart = (
   itemCartToClear: CartItem
 ) => {
   const newCartItems = clearCartItem(cartItems, itemCartToClear);
+  return setCartItems(newCartItems);
+};
+
+export const setClearItemFromCartAfterPayment = (cartItems: CartItem[]) => {
+  const newCartItems = clearCartAfterPayment(cartItems);
   return setCartItems(newCartItems);
 };

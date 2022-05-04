@@ -9,7 +9,7 @@ import Navigation from "@Components/navigation";
 import Home from "@Pages/home-page";
 import AuthenticationPage from "@Pages/authentication-page";
 import Shop from "@Pages/shop-page";
-import Checkout from "@Pages/checkout-page";
+import CheckoutPage from "@Pages/checkout-page";
 import NotFound from "@Pages/404-page";
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
           element={currentUser ? <Navigate to="/" /> : <AuthenticationPage />}
         />
         <Route path="shop/*" element={<Shop />} />
-        <Route path="checkout" element={<Checkout />} />
+        <Route path="checkout" element={<CheckoutPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

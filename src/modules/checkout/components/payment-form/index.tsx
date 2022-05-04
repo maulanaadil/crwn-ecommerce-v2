@@ -1,10 +1,11 @@
 import { FormEvent, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { StripeCardElement } from "@stripe/stripe-js";
 
 import { selectCurrentUser } from "@Store/user/user.selector";
-import { selectCartTotal } from "@Store/cart/cart-selector";
+import { selectCartTotal, selectCartItems } from "@Store/cart/cart-selector";
+import { setClearItemFromCartAfterPayment } from "@Store/cart/cart-action";
 
 import {
   PaymentFormContainer,
@@ -20,10 +21,16 @@ const ifValidCardElement = (
 
 const PaymentForm = () => {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+  const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
+  const cartItems = useSelector(selectCartItems);
   const amount = useSelector(selectCartTotal);
   const currentUser = useSelector(selectCurrentUser);
+
+  const setRemoveCheckoutItem = () => {
+    dispatch(setClearItemFromCartAfterPayment(cartItems));
+  };
 
   const paymentHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,6 +77,7 @@ const PaymentForm = () => {
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
         alert("Payment Successful");
+        setRemoveCheckoutItem();
       }
     }
   };

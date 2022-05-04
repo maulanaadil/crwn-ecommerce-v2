@@ -57,3 +57,7 @@ export const clearCartItem = (
 ): CartItem[] => {
   return cartItems.filter((cartItem) => cartItem.id !== itemCartToClear.id);
 };
+
+export const clearCartAfterPayment = (cartItems: CartItem[]): CartItem[] => {
+  return cartItems.splice(0, cartItems.length);
+};
