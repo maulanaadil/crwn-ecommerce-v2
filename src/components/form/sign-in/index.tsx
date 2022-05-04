@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import { AuthError, AuthErrorCodes } from "firebase/auth";
 import { useDispatch } from "react-redux";
 
 import { googleSignInStart, emailSignInStart } from "@Store/user/user.action";
@@ -35,17 +36,12 @@ const SignIn = () => {
     try {
       dispatch(emailSignInStart(email, password));
       resetFormFields();
-    } catch (error: any) {
-      switch (error.code) {
-        case "auth/user-not-found":
-          alert("Account not found!");
-          break;
-        case "auth/wrong-password":
-          alert("Invalid password!");
-          break;
-        default:
-          console.error(error.message);
-      }
+    } catch (error) {
+      if ((error as AuthError).code === AuthErrorCodes.USER_DELETED)
+        alert("Account not found!");
+      else if ((error as AuthError).code === AuthErrorCodes.INVALID_PASSWORD)
+        alert("Invalid password!");
+      else console.error(error);
     }
   };
 

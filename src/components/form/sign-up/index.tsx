@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
+import { AuthError, AuthErrorCodes } from "firebase/auth";
 
 import { signUpStart } from "@Store/user/user.action";
 
@@ -35,12 +36,12 @@ const SignUpForm = () => {
       dispatch(signUpStart(email, password, displayName));
       alert("SignUp successfully");
       setResetForm();
-    } catch (error: any) {
-      if (error.code === "auth/email-already-in-use") {
+    } catch (error) {
+      if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS)
         alert("Failed, Email already in use");
-      } else if (error.code === "auth/weak-password") {
+      else if ((error as AuthError).code === AuthErrorCodes.WEAK_PASSWORD)
         alert("Password should be at least 6 characters");
-      }
+      else console.error(error);
     }
   };
 
