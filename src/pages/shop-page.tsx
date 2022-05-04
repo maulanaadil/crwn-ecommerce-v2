@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { fetchCategoriesStart } from "@Store/categories/categories-action";
 
 import CategoriesPreviewPage from "./categories-preview-page";
-import Category from "./category-page";
+import CategoryPage from "./category-page";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Shop = () => {
   return (
     <Routes>
       <Route index element={<CategoriesPreviewPage />} />
-      <Route path=":category" element={<Category />} />
+      <Route path=":category" element={<CategoryPage />} />
     </Routes>
   );
 };
