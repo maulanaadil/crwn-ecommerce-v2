@@ -2,10 +2,11 @@ import { FC } from "react";
 
 import { CategoryPreviewContainer, Title, Preview } from "./styles";
 import { CategoryPreviewProps } from "./types";
+import { MotionProps } from "framer-motion";
 
 import ProductCard from "@Components/product-card";
 
-const CategoryPreview: FC<CategoryPreviewProps> = ({
+const CategoryPreview: FC<CategoryPreviewProps & MotionProps> = ({
   title,
   product,
   ...otherProps
