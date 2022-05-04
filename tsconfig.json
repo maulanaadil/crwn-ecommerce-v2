@@ -32,7 +32,9 @@
       "@Store": ["store"],
       "@Store/*": ["store/*"],
       "@Utils": ["utils"],
-      "@Utils/*": ["utils/*"]
+      "@Utils/*": ["utils/*"],
+      "@Modules": ["modules"],
+      "@Modules/*": ["modules/*"]
     }
   },
   "include": ["src", "src/config.d.ts"]
