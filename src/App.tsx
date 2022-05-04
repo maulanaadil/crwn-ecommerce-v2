@@ -6,11 +6,11 @@ import { checkUserSession } from "@Store/user/user.action";
 import { selectCurrentUser } from "@Store/user/user.selector";
 
 import Navigation from "@Components/navigation";
-import Home from "@Pages/homepage";
-import Authentication from "@Pages/authenticationpage";
-import Shop from "@Pages/shoppage";
-import Checkout from "@Pages/checkoutpage";
-import NotFound from "@Pages/404page";
+import HomePage from "@Pages/home-page";
+import AuthenticationPage from "@Pages/authentication-page";
+import Shop from "@Pages/shop-page";
+import CheckoutPage from "@Pages/checkout-page";
+import NotFound from "@Pages/404-page";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,13 +24,13 @@ const App = () => {
     <div>
       <Navigation />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route
           path="auth"
-          element={currentUser ? <Navigate to="/" /> : <Authentication />}
+          element={currentUser ? <Navigate to="/" /> : <AuthenticationPage />}
         />
         <Route path="shop/*" element={<Shop />} />
-        <Route path="checkout" element={<Checkout />} />
+        <Route path="checkout" element={<CheckoutPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

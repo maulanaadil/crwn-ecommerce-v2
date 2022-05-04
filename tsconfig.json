@@ -31,6 +31,8 @@
       "@Assets/*": ["assets/*"],
       "@Store": ["store"],
       "@Store/*": ["store/*"],
+      "@Modules": ["modules"],
+      "@Modules/*": ["modules/*"],
       "@Utils": ["utils"],
       "@Utils/*": ["utils/*"]
     }
