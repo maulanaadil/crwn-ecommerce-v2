@@ -20,6 +20,8 @@ export type SetCurrentUser = ActionWithPayload<
   UserData
 >;
 
+export type SetAppStart = Action<USER_ACTION_TYPES.SET_APP_START>;
+
 export type GoogleSignInStart = Action<USER_ACTION_TYPES.GOOGLE_SIGN_IN_START>;
 
 export type EmailSignInStart = ActionWithPayload<
@@ -63,6 +65,10 @@ export type SignOutFailed = ActionWithPayload<
 
 export const checkUserSession = withMatcher(
   (): CheckUserSession => createAction(USER_ACTION_TYPES.CHECK_USER_SESSION)
+);
+
+export const setAppStart = withMatcher(
+  (): SetAppStart => createAction(USER_ACTION_TYPES.SET_APP_START)
 );
 
 export const setCurrentUser = withMatcher(
