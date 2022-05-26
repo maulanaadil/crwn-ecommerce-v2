@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -7,12 +7,13 @@ import { selectCurrentUser, selectIsLoading } from "@Store/user/user.selector";
 
 import Navigation from "@Components/navigation";
 import Overlay from "@Modules/overlay";
+import Spinner from "@Components/spinner";
 
-import HomePage from "@Pages/home-page";
-import AuthenticationPage from "@Pages/authentication-page";
-import Shop from "@Pages/shop-page";
-import CheckoutPage from "@Pages/checkout-page";
-import NotFound from "@Pages/404-page";
+const HomePage = lazy(() => import("@Pages/home-page"));
+const AuthenticationPage = lazy(() => import("@Pages/authentication-page"));
+const Shop = lazy(() => import("@Pages/shop-page"));
+const CheckoutPage = lazy(() => import("@Pages/checkout-page"));
+const NotFoundPage = lazy(() => import("@Pages/404-page"));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <Suspense fallback={<Spinner />}>
       {isAppStart ? (
         <Overlay />
       ) : (
@@ -44,11 +45,11 @@ const App = () => {
             />
             <Route path="shop/*" element={<Shop />} />
             <Route path="checkout" element={<CheckoutPage />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
       )}
-    </>
+    </Suspense>
   );
 };
 
