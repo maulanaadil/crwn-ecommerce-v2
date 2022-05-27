@@ -7,6 +7,12 @@ export const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 80px;
+
+  @media screen and (max-width: 800px) {
+    padding: 10px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const LogoContainer = styled(NavLink)`
@@ -15,6 +21,11 @@ export const LogoContainer = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 800px) {
+    width: 50px;
+    padding: 0;
+  }
 `;
 
 export const OptionsContainer = styled.div`
@@ -23,6 +34,13 @@ export const OptionsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media screen and (max-width: 800px) {
+    width: 80%;
+    a:nth-child(1) {
+      display: none;
+    }
+  }
 `;
 
 export const OptionLink = styled(NavLink)`
@@ -36,5 +54,10 @@ export const OptionLink = styled(NavLink)`
 
   &:hover {
     text-decoration: underline;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 8px 7px;
+    font-size: 12px;
   }
 `;

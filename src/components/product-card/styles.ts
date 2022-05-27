@@ -22,6 +22,10 @@ export const ProductCardContainer = styled(motion.div)`
     position: absolute;
     top: 255px;
     display: none;
+
+    @media screen and (max-width: 800px) {
+      padding: 0 15px;
+    }
   }
 
   &:hover {
@@ -47,8 +51,16 @@ export const ProductCardFooter = styled.div`
 export const ProductName = styled.span`
   width: 90%;
   margin-bottom: 15px;
+
+  @media screen and (max-width: 800px) {
+    width: 70%;
+  }
 `;
 
 export const ProductPrice = styled.span`
   width: 10%;
+
+  @media screen and (max-width: 800px) {
+    width: 30%;
+  }
 `;

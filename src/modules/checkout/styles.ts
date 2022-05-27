@@ -7,6 +7,11 @@ export const CheckoutContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 50px auto 0;
+
+  @media screen and (max-width: 800px) {
+    margin: 10px;
+    width: auto;
+  }
 `;
 
 export const CheckoutHeader = styled.div`
@@ -24,6 +29,18 @@ export const HeaderBlock = styled.div`
   &:last-child {
     width: 8%;
   }
+
+  @media screen and (max-width: 800px) {
+    width: 20%;
+
+    &:last-child {
+      width: 10%;
+    }
+
+    span {
+      font-size: 12px;
+    }
+  }
 `;
 
 export const TotalWrapper = styled.div`
@@ -37,6 +54,11 @@ export const TotalWrapper = styled.div`
 export const Total = styled.span`
   padding-bottom: 20px;
   font-size: 20px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
 `;
 
 export const TextWarning = styled.div`
@@ -44,4 +66,8 @@ export const TextWarning = styled.div`
   text-align: center;
   margin: 40px auto;
   font-size: 24px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 14px;
+  }
 `;

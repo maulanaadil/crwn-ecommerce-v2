@@ -17,6 +17,10 @@ export const FormContainer = styled.form`
     float: right;
     margin-top: 40px;
   }
+
+  @media screen and (max-width: 800px) {
+    min-width: 300px;
+  }
 `;
 
 export const Title = styled.h2`

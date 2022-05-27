@@ -26,10 +26,18 @@ export const Arrow = styled.div`
 
 export const TextQuantity = styled.span`
   margin: 0 10px;
+
+  @media screen and (max-width: 800px) {
+    margin: 0 5px;
+  }
 `;
 
 const textStyle = css`
   width: 23%;
+
+  @media screen and (max-width: 800px) {
+    font-size: 12px;
+  }
 `;
 
 export const TextName = styled.span`

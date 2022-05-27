@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: "Open Sans", sans-serif;
+
+        @media screen and (max-width: 800px) {
+            padding: 10px;
+        }
     }
 
     a {

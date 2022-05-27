@@ -15,6 +15,11 @@ export const CartDropDownContainer = styled(motion.div)`
   top: 70px;
   right: 90px;
   z-index: 5;
+
+  @media screen and (max-width: 800px) {
+    top: 70px;
+    right: 40px;
+  }
 `;
 
 export const EmptyMessage = styled.span`
